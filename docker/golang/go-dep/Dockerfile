@@ -50,9 +50,7 @@ RUN set -eux; \
 	apk del .build-deps; \
 	\
 	export PATH="/usr/local/go/bin:$PATH"; \
-	go version;
-
-RUN	export PATH="/usr/local/go/bin:$PATH"; \
+	go version; \
 	go get  -u github.com/golang/dep/cmd/dep; \
     cd $GOPATH/src/github.com/golang/dep; \
     go install github.com/golang/dep/...; \
