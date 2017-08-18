@@ -20,8 +20,8 @@ RUN set -eux; \
 		musl-dev \
 		openssl \
 		go \
-		make \
 	; \
+	apk add --no-cache make; \
 	export \
 # set GOROOT_BOOTSTRAP such that we can actually build Go
 		GOROOT_BOOTSTRAP="$(go env GOROOT)" \
