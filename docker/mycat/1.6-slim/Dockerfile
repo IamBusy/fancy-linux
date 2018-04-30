@@ -16,7 +16,8 @@ RUN apt-get update && \
     tar -zxvf mycat-${MYCAT_VERSION}.tar.gz && \
     cp -r mycat/* ${MYCAT_HOME} && \
     rm mycat-${MYCAT_VERSION}.tar.gz && \
-    rm -r mycat
+    rm -r mycat && \
+    cp conf/wrapper.conf ${MYCAT_VERSION}/conf
 
 WORKDIR ${MYCAT_HOME}
 
