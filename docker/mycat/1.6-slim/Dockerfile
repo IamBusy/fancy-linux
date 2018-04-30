@@ -24,4 +24,4 @@ VOLUME ${MYCAT_HOME}/conf
 
 EXPOSE 3306
 
-CMD ["./startup.sh"]
+CMD ["mycat", "start"]
