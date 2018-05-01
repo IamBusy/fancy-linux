@@ -21,13 +21,17 @@ RUN apt-get update && \
     tar -zxvf mycat-${MYCAT_VERSION}.tar.gz && \
     cp -r mycat/* ${MYCAT_HOME} && \
     rm mycat-${MYCAT_VERSION}.tar.gz && \
-    rm -r mycat && \
-    cp conf/wrapper.conf ${MYCAT_VERSION}/conf
+    rm -r mycat
+
+ADD conf/wrapper.conf ${MYCAT_HOME}/conf
 
 WORKDIR ${MYCAT_HOME}
 
 VOLUME ${MYCAT_HOME}/conf
+VOLUME ${MYCAT_HOME}/logs
 
 EXPOSE 3306
 
-CMD ["/tini", "mycat", "start"]
+ENTRYPOINT ["/tini"]
+
+CMD ["mycat", "console"]
